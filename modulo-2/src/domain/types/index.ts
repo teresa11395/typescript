@@ -57,5 +57,8 @@ export function generarReporte(estado: EstadoMatricula): string {
       return `Matrícula suspendida. Motivo: ${estado.motivoSuspension}`;
     case "FINALIZADA":
       return `Matrícula finalizada con nota media: ${estado.notaMedia}`;
+    default:
+      const comprobacionExhaustiva: never = estado;
+      throw new Error(`Estado no manejado: ${comprobacionExhaustiva}`);
   }
 }
